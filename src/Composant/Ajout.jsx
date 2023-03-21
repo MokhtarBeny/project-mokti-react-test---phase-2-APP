@@ -1,21 +1,27 @@
+import axios from "axios";
+import { useState } from "react";
 
-
-function Ajout()
-
+function Ajout(props)
 {
+  const [nom, setNom] = useState("");
+  const [prix, setPrix] = useState(0);
+
+  function handleClick() {
+    props.onAjout(nom, prix)
+  }
 
     return (
         <div>
           <h2>Ajouter un produit</h2>
-          <form>
+          {/* <form> */}
             <label>Nom:</label>
-            <input type="text" />
+            <input type="text" value={nom} onChange={ (evt) => { setNom(evt.target.value)}}/>
             <br />
             <label>Prix:</label>
-            <input type="number" step="0.01" />
+            <input type="number" step="0.01" value={prix} onChange={ (evt) => { setPrix(evt.target.value)}}/>
             <br />
-            <button>Ajouter</button>
-          </form>
+            <button onClick={handleClick}>Ajouter</button>
+          {/* </form> */}
         </div>
       );  
 }
