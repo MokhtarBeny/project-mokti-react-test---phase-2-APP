@@ -15,8 +15,7 @@ function ListeProduits({nom}) {
       {
         liste.map( (ligne, i) =>(
           <Produit key={i} id={ligne.id} nom={ligne.nom} prix={ligne.Prix}/>
-        dataFiltered.map( (ligne, i) =>(
-          <Produit key={i} id={ligne.id} nom={ligne.libelle} prix={ligne.prix}/>
+        
         ))
       }
       
