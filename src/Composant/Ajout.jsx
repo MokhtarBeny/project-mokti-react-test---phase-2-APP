@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 
 function Ajout(props)
-
 {
   const [nom, setNom] = useState("");
   const [prix, setPrix] = useState(0);

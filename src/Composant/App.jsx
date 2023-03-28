@@ -1,5 +1,5 @@
 import ListeProduits from "./ListeProduits";
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Header from "./Header";
 import Ajout from "./Ajout";
 import axios from "axios";
@@ -32,7 +32,6 @@ function App() {
     }
   
 
-  const dataFiltered = data.filter( (p) => p.nom.search(recherche)>=0 )
 
   useEffect(  () => {
 
@@ -77,4 +76,3 @@ function App() {
 }
 
 export default App;
- 
