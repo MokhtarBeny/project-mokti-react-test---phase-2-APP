@@ -1,15 +1,20 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearch } from '../redux'
+
 
 
 
 function Search(props) 
 {  
   
-  const [recherche, setRecherche] = useState('')
+  // const [recherche, setRecherche] = useState('')
+  const recherche = useSelector(store=>store.data.recherche)
+
+  const dispatch = useDispatch();
 
   function handleChange (e) {
-    setRecherche(e.target.value)
-    props.onModification(e.target.value)
+    dispatch(setSearch(e.target.value))
 
   }
 

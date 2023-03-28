@@ -3,14 +3,14 @@ import Search from "./Search";
 
 
 
-function Header(props) {
+function Header() {
 
   
 
     return (
       <div className="App">
         <Compteur />
-        <Search onModification = {props.onModification}  />
+        <Search   />
         
         
         

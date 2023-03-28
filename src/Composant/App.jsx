@@ -3,33 +3,22 @@ import { useEffect, useState } from "react";
 import Header from "./Header";
 import Ajout from "./Ajout";
 import axios from "axios";
-import { load, load2 } from "./Datas/remote";
-
+import { load2 } from "./Datas/remote";
+import { useDispatch, useSelector } from "react-redux";
+import { load } from "../redux";
 
 
 function App() {
 
-    const [recherche, setRecherche] = useState("")
-    const [data, setdata] = useState([]); 
-  
-  
-    function handleModification(v) {
+    // const [recherche, setRecherche] = useState("")
+    // const [data, setdata] = useState([]); 
     
-      setRecherche(v)
-    }
+    const recherche = useSelector(store => store.data.recherche);
+  
+    const dispatch = useDispatch();
+    
 
-    async function handleAjout(nom, prix) {
-      await axios.post("https://127.0.0.1:800/api/produits", {
-        nom: nom,
-        prix: prix,
-        SousCategorie: "/api/sous_categories/1"
-      });
-
-      const response= await load();
-      console.log(response);
-      setdata(response.data);
-
-    }
+    
   
 
 
@@ -52,23 +41,21 @@ function App() {
     // })
 
     load2().then ( (response) => {
-      setdata(response.data);
+      dispatch(load(response.data));
     } )
 
 
   }, []);
 
-  useEffect(  () => {
-
-      console.log("test recherche");
-  }, [recherche]);
+  
 
   return (
     <div className="App">
       <h1>Projet React Shoes Island test </h1>
-      <Header onModification={handleModification} />
-      <ListeProduits liste={dataFiltered} nom="Catalogue"/>
-      <Ajout onAjout={handleAjout} />
+      <h1>{recherche}</h1>
+      <Header />
+      <ListeProduits nom="Catalogue"/>
+      <Ajout />
       
       
     </div>
