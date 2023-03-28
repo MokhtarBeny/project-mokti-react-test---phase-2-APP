@@ -1,13 +1,26 @@
 import axios from "axios";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { add } from "../redux";
 
 function Ajout(props)
 {
   const [nom, setNom] = useState("");
   const [prix, setPrix] = useState(0);
 
+  const dispatch = useDispatch();
+
   function handleClick() {
-    props.onAjout(nom, prix)
+      // await axios.post("https://127.0.0.1:800/api/produits", {
+      //   nom: nom,
+      //   prix: prix,
+      //   SousCategorie: "/api/sous_categories/1"
+      // });
+
+      // const response= await load();
+      // console.log(response);
+      // setdata(response.data);
+      dispatch(add({id: 5, nom, prix}))
   }
 
     return (
