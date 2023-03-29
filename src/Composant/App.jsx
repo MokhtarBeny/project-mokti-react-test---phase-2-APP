@@ -20,7 +20,7 @@ function App() {
 
     
   
-    const dataFiltered = data.filter((p) => p.nom.search(recherche) >= 0)
+    //const dataFiltered = data.filter((p) => p.nom.search(recherche) >= 0)
 
   useEffect(  () => {
 
