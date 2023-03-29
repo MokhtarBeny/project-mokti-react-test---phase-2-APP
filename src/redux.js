@@ -4,16 +4,7 @@ const slice = createSlice({
     name: "slice1",
     initialState: {
         liste: [
-            // {
-            //     id: 1,
-            //     nom: "test",
-            //     prix: 666
-            // },
-            // {
-            //     id: 2,
-            //     nom: "test2",
-            //     prix: 44
-            // }
+            
         ],
         recherche: ""
     },

@@ -1,7 +1,6 @@
-import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { add } from "../redux";
+import { add2 } from "./Datas/remote";
 
 function Ajout(props)
 {
@@ -11,31 +10,25 @@ function Ajout(props)
   const dispatch = useDispatch();
 
   function handleClick() {
-      // await axios.post("https://127.0.0.1:800/api/produits", {
-      //   nom: nom,
-      //   prix: prix,
-      //   SousCategorie: "/api/sous_categories/1"
-      // });
+      
+      dispatch(add2({id: 5, nom, prix}))
 
-      // const response= await load();
-      // console.log(response);
-      // setdata(response.data);
-      dispatch(add({id: 5, nom, prix}))
+      
   }
 
     return (
-        <div>
+      <>
           <h2>Ajouter un produit</h2>
+        <div className="grid">
           
-            <label>Nom:</label>
-            <input type="text" value={nom} onChange={ (evt) => { setNom(evt.target.value)}} />
+            <input placeholder="Nom" type="text" value={nom} onChange={ (evt) => { setNom(evt.target.value)}} />
             <br />
-            <label>Prix:</label>
-            <input type="number" step="0.01" value={prix} onChange={ (evt) => {setPrix(evt.target.value)}} />
+            <input placeholder="Prix" type="number" step="0.01" value={prix} onChange={ (evt) => {setPrix(evt.target.value)}} />
             <br />
             <button onClick={handleClick}>Ajouter</button>
           
         </div>
+      </>
       );  
 }
 
