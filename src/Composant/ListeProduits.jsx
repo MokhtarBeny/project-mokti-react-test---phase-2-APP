@@ -7,7 +7,7 @@ function ListeProduits({nom}) {
   const liste = useSelector(store => store.data.liste)
   const recherche = useSelector(store => store.data.recherche);
 
-  const dataFiltered = liste.filter( (p) => p.libelle.search(recherche)>=0 || p.prix.toString().search(recherche)>=0 )
+  const dataFiltered = liste.filter( (p) => p.nom.search(recherche)>=0 || p.prix.toString().search(recherche)>=0 )
 
   return (
     <div  >
@@ -24,3 +24,5 @@ function ListeProduits({nom}) {
 }
 
 export default ListeProduits;
+
+
